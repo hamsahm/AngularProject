@@ -18,7 +18,6 @@ export class CartComponent implements OnInit {
 
     this.products = this.productService.getCartItems();
 
-    console.log(" this.products inside cart component "+this.products)
     if(this.products.length === 0){
       this.hidden = true
     }
@@ -26,9 +25,6 @@ export class CartComponent implements OnInit {
     for (var product of this.products) {
       this.totalPrice = this.totalPrice + (product.qtyOrdered * product.price);
     }
-
-    console.log(this.totalPrice);
-
   }
 
   placeOrder(): void{

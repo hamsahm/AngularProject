@@ -23,9 +23,6 @@ export class ProductComponent implements OnInit {
   
   }
 
- // addToCart(product: Product){
   addToCart(){
- //this.cartService.addItem(product);
- console.log(" Click on add to cart button");
   }
 }

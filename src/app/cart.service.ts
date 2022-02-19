@@ -21,7 +21,6 @@ export class CartService {
       exist.qty;
     } else {
       this.cartItems.push(product);
-     // this.numOfItems.next(this.cartItems)
     }
 
   }

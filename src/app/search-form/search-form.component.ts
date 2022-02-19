@@ -50,10 +50,10 @@ export class SearchFormComponent implements OnInit {
         if(prod === addedProduct){
           prod.qty = prod.qty - 1;
           if(prod.qtyOrdered > 0){
-           // prod.qtyOrdered = prod.qtyOrdered + 1
             this.cartItems.find(item => {
               if(item.id === prod.id){
                 item.qtyOrdered = item.qtyOrdered+1
+                item.qty = item.qty - 1;
               }
             })
           } else {

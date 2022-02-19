@@ -42,14 +42,12 @@ export class ProductService {
 
   addProduct(product: Product){
     let counter = this.products.length
-    console.log("Inside service method "+product)
     product.id = counter+1
     return this.products.push(product);
   }
 
   searchProductByName(productName:String): Product {
 
-    console.log("inside service for search"+productName)
     let searchedProduct: Product = new Product(0,"",0,0, 0,"")
     this.products.find(product => {
      if( product.name === productName){
