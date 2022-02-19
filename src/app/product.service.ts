@@ -8,17 +8,19 @@ export class ProductService {
  
 
   products: Product[] = [
-    new Product(1, 'Apple',200,10,""),
-    new Product(2, 'Guava',25,10,""),
-    new Product(3, 'Sweet Lime',50,10,""),
-    new Product(4, 'Pineapple',50,10,""),
-    new Product(5, 'Pomegranate',200,10,""),
-    new Product(6, 'Potato',30,10,""),
-    new Product(7, 'Carrot',40,10,""),
-    new Product(8, 'Brocolli',50,10,""),
-    new Product(9, 'Sweet Corn',30,10,""),
-    new Product(10, 'Beetroot',40,10,"")
+    new Product(1, 'Apple',200,10, 0,""),
+    new Product(2, 'Guava',25,10, 0,""),
+    new Product(3, 'Sweet Lime',50,10, 0,""),
+    new Product(4, 'Pineapple',50,10, 0,""),
+    new Product(5, 'Pomegranate',200,10, 0,""),
+    new Product(6, 'Potato',30,10, 0 ,""),
+    new Product(7, 'Carrot',40,10, 0, ""),
+    new Product(8, 'Brocolli',50,10, 0,""),
+    new Product(9, 'Sweet Corn',30,10, 0,""),
+    new Product(10, 'Beetroot',40,10, 0,"")
   ]
+
+  cartItems: Product[] = []
   constructor() { }
 
   getProducts(){
@@ -48,7 +50,7 @@ export class ProductService {
   searchProductByName(productName:String): Product {
 
     console.log("inside service for search"+productName)
-    let searchedProduct: Product = new Product(0,"",0,0,"")
+    let searchedProduct: Product = new Product(0,"",0,0, 0,"")
     this.products.find(product => {
      if( product.name === productName){
       searchedProduct = product;
@@ -59,9 +61,11 @@ export class ProductService {
   
 }
 
+setCartItems(cartItems: Product[]){
+    this.cartItems = cartItems;
+}
 
 getCartItems(): Product[] {
- let checkOutProducts: Product[] = [];
- return checkOutProducts
-}
+  return this.cartItems
+  }
 }

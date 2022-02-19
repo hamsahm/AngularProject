@@ -6,7 +6,8 @@
       <tr>
         <th scope="col">Product Name</th>
         <th scope="col">Product Price</th>
-        <th scope="col">Product Quantity</th>
+        <th scope="col">Quantity Ordered</th>
+        <th scope="col">Quantity Left</th>
         <th scope="col">Total Price</th>
       </tr>
     </thead>
@@ -14,12 +15,15 @@
         <tr scope="row" *ngFor="let product of products">
             <td>{{product.name}}</td>
             <td>{{product.price}}</td>
+            <td>{{product.qtyOrdered}}</td> 
             <td>{{product.qty}}</td> 
-            <td>{{product.qty * product.price}}</td> 
+            <td>{{product.qtyOrdered * product.price}}</td> 
         </tr>
     </tbody>
   </table>
 
+  <p style="text-align:right;font-weight:bold" [hidden]="hidden">Total Price: {{totalPrice}}</p>
+  
   <br/>
   <button type="submit" class="btn btn-primary" (click)="placeOrder()" [hidden]="hidden">Place Order</button>
 

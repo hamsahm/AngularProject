@@ -1,3 +1,4 @@
+import { createDirectiveTypeParams } from '@angular/compiler/src/render3/view/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Product } from '../product.model';
@@ -14,6 +15,7 @@ export class SearchFormComponent implements OnInit {
   product?:Product;
   productName: String = ""
   hidden: Boolean = false;
+  cartItems: Product[] = [];
 
   searchProductForm: FormGroup = new FormGroup({
     productName: new FormControl(),
@@ -43,9 +45,22 @@ export class SearchFormComponent implements OnInit {
     }
   }
 
-  addToCart(product: Product){
-    console.log(product);
+  addToCart(addedProduct: Product){
+      this.products.forEach( prod => {
+        if(prod === addedProduct){
+          prod.qty = prod.qty - 1;
+          if(prod.qtyOrdered > 0){
+            prod.qtyOrdered = prod.qtyOrdered + 1
+          } else {
+            prod.qtyOrdered = 1;
+          }
+          let prod1 = new Product(prod.id, prod.name, prod.price, prod.qty, prod.qtyOrdered ,prod.imgUrl)
+          this.cartItems.push(prod1)
+        }
+      });
 
-  }
+  this.productsService.setCartItems(this.cartItems);
+
+}
 
 }

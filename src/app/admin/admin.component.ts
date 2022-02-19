@@ -43,7 +43,7 @@ addProductForm: FormGroup = new FormGroup({
           console.log(this.productName);
           console.log(this.price);
           console.log(this.qty);
-          let newProduct:Product = new Product(0,this.addProductForm.value.productName,this.addProductForm.value.price,this.addProductForm.value.qty,"")
+          let newProduct:Product = new Product(0,this.addProductForm.value.productName,this.addProductForm.value.price,this.addProductForm.value.qty,0,"")
 
           this.productsService.addProduct(newProduct);
         }
