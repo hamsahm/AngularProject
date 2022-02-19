@@ -1,0 +1,42 @@
+<h1>Admin Dashboard</h1>
+<form [formGroup]="addProductForm" (ngSubmit)="addProduct()">    
+    <div class="form-group">
+      <label for="name">Product Name</label>
+      <input type="text" class="form-control" formControlName="productName" aria-describedby="productHelp" placeholder="Product Name" required>
+    </div>
+    <div class="form-group">
+      <label for="price">Product Price</label>
+      <input type="text" class="form-control" formControlName="price" placeholder="Price" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="qty">Product Quantity</label>
+      <input type="text" class="form-control" formControlName="qty" placeholder="Quantity" required>
+    </div>
+<br/>
+    <button class="btn btn-primary">Add Product</button>
+  </form>
+  <hr/>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Product Id</th> 
+        <th scope="col">Product Name</th>
+        <th scope="col">Product Price</th>
+        <th scope="col">Product Quantity</th>
+        <th scope="col">Action</th> 
+      </tr>
+    </thead>
+    <tbody>
+        <tr scope="row" *ngFor="let product of products">
+            <td>{{product.id}}</td> 
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.qty}}</td> 
+            <button type="submit" class="btn btn-link" (click)="deleteProduct(product)">Delete</button>
+        </tr>
+    </tbody>
+  </table>
+
+
