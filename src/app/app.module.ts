@@ -8,6 +8,7 @@ import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
 import { AdminComponent } from './admin/admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SearchFormComponent } from './search-form/search-form.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductsComponent,
     ProductComponent,
     CartComponent,
-    AdminComponent
+    AdminComponent,
+    SearchFormComponent
   ],
   imports: [
     BrowserModule,

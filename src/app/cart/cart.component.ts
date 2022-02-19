@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../product.model';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  products: Product[] = []
+  hidden: Boolean = false;
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
+
+    this.products = this.productService.getCartItems();
+
+    if(this.products.length === 0){
+      this.hidden = true
+    }
+
   }
 
+  placeOrder(): void{
+      alert(" The order placed successfully");
+  }
 }

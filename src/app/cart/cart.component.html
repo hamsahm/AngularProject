@@ -1,1 +1,25 @@
-<p>Checkout page</p>
+<br>
+<h3> Welcome to Checkout</h3>
+
+<table class="table table-bordered" [hidden]="hidden">
+    <thead>
+      <tr>
+        <th scope="col">Product Name</th>
+        <th scope="col">Product Price</th>
+        <th scope="col">Product Quantity</th>
+        <th scope="col">Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr scope="row" *ngFor="let product of products">
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.qty}}</td> 
+            <td>{{product.qty * product.price}}</td> 
+        </tr>
+    </tbody>
+  </table>
+
+  <br/>
+  <button type="submit" class="btn btn-primary" (click)="placeOrder()" [hidden]="hidden">Place Order</button>
+
